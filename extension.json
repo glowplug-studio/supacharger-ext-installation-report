@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 3,
+  "id": "installation-report",
+  "name": "supacharger-ext-installation-report",
+  "version": "0.1.0",
+  "coreOwnershipVersion": 2,
+  "dependencies": [],
+  "core_services": [],
+  "files": [
+    {
+      "source": "payload/agents/AGENTS.md",
+      "target": "docs/agents/extensions/supacharger-ext-installation-report/AGENTS.md"
+    },
+    {
+      "source": "payload/app/_components/installation-report-popover.tsx",
+      "target": "src/app/(project)/(extensions)/(sc_extensions)/(installation-report)/_components/installation-report-popover.tsx"
+    },
+    {
+      "source": "payload/app/_lib/checklist.ts",
+      "target": "src/app/(project)/(extensions)/(sc_extensions)/(installation-report)/_lib/checklist.ts"
+    },
+    {
+      "source": "payload/app/_lib/config-report.ts",
+      "target": "src/app/(project)/(extensions)/(sc_extensions)/(installation-report)/_lib/config-report.ts"
+    },
+    {
+      "source": "payload/app/index.ts",
+      "target": "src/app/(project)/(extensions)/(sc_extensions)/(installation-report)/index.ts"
+    },
+    {
+      "source": "payload/app/page-hook.tsx",
+      "target": "src/app/(project)/(extensions)/(sc_extensions)/(installation-report)/page-hook.tsx"
+    },
+    {
+      "source": "payload/app/supacharger-ext-installation-report.config.ts",
+      "target": "src/app/(project)/(extensions)/(sc_extensions)/(installation-report)/supacharger-ext-installation-report.config.ts",
+      "kind": "config"
+    },
+    {
+      "source": "payload/docs/INSTALL.md",
+      "target": "docs/extensions/installation-report/INSTALL.md"
+    }
+  ]
+}

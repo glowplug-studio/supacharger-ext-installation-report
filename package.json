@@ -1,0 +1,17 @@
+{
+  "name": "supacharger-ext-installation-report",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Temporary installation progress report for Supacharger",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/verify.mjs"
+  },
+  "files": [
+    "extension.json",
+    "payload",
+    "README.md",
+    "AGENTS.md",
+    "scripts"
+  ]
+}
