@@ -4,6 +4,10 @@ import { type PointerEvent as ReactPointerEvent, useEffect, useRef, useState } f
 import { useRouter } from 'next/navigation';
 
 import InstallationAvatar from '@/supacharger/assets/svgr/brand/supacharger-installation-avatar.svg';
+import {
+  ClipboardCopyButtonBase,
+  type ClipboardCopyButtonMessages,
+} from '@/supacharger/components/buttons/clipboard-copy-button';
 
 import type { InstallationChecklistReport } from '../_lib/checklist';
 import type { InstallationConfigReportItem } from '../_lib/config-report';
@@ -14,9 +18,11 @@ type Position = { x: number; y: number };
 const removalPath = 'src/app/(project)/(extensions)/(sc_extensions)/(installation-report)';
 
 export function InstallationReportPopover({
+  copyMessages,
   configReport,
   initialReport,
 }: {
+  copyMessages: ClipboardCopyButtonMessages;
   configReport: InstallationConfigReportItem[];
   initialReport: InstallationChecklistReport;
 }) {
@@ -148,8 +154,17 @@ export function InstallationReportPopover({
                 <span className='shrink-0 text-2xl tracking-[-0.04em] text-[#26745a]'>{report.percentage}%</span>
               </div>
               <p className='mt-3 text-xs leading-5 text-[#52665b]'>
-                To remove, delete <span className='break-all text-[#264d42]'>{removalPath}</span> from the project
-                source.
+                To remove, delete{' '}
+                <ClipboardCopyButtonBase
+                  className='inline-flex h-auto max-w-full overflow-hidden rounded-md border-[#cfdbd1] bg-[#f4f7f4] px-2 py-1 align-middle text-[#264d42] shadow-none hover:bg-[#eaf0eb]'
+                  iconClassName='size-3.5 shrink-0'
+                  messages={copyMessages}
+                  value={removalPath}
+                  variant='outline'
+                >
+                  <code className='block min-w-0 truncate text-[11px]'>{removalPath}</code>
+                </ClipboardCopyButtonBase>{' '}
+                from the project source.
               </p>
             </header>
 
@@ -206,11 +221,7 @@ export function InstallationReportPopover({
 
                 <div className='w-full space-y-5 px-5 py-5 sm:px-6'>
                   {report.sections.map((section) => (
-                    <section className='relative border-l border-[#cfdbd1] pl-4' key={section.title}>
-                      <span
-                        className='absolute top-1.5 -left-[5px] size-2 rounded-full bg-[#50715e]'
-                        aria-hidden='true'
-                      />
+                    <section key={section.title}>
                       <div className='flex items-center justify-between gap-3'>
                         <h3 className='text-sm text-[#193832]'>{section.title}</h3>
                         <span className='shrink-0 text-[11px] text-[#52665b]'>
